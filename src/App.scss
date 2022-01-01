@@ -15,4 +15,18 @@
     max-width: 1200px;
     background-color: #f9f9f9;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__navigation{
+        width: 100%;
+        height: 100px;
+        background-color: #b9b9b9;
+    }
+
+    &__display{
+        width: 100%;
+        height: calc(100% - 100px);
+        background-color: #747474;
+    }
 }
