@@ -14,14 +14,27 @@ function App() {
       <div className="app-body">
         <div className="content">
           <div className="content__navigation">
-            <ul>
-              <li>
-                <NavLink to="/">Gallery</NavLink>
-              </li>
-              <li>
-                <NavLink to="/about" >About me</NavLink>
-              </li>
-            </ul>
+            <div className="navigation__wrapper">
+              <div className="navigation__name">
+                Adam Milko
+              </div>
+
+              <NavLink to="/"
+                className={(navData)=> navData.isActive ? 'navigation__link navigation__link--active' : 'navigation__link'}>
+                Gallery
+              </NavLink>
+
+              <NavLink to="/about"
+                className={(navData)=> navData.isActive ? 'navigation__link navigation__link--active' : 'navigation__link'}>
+                About me
+              </NavLink>
+
+              <NavLink to="/about"
+                className={(navData)=> navData.isActive ? 'navigation__link navigation__link--active' : 'navigation__link'}>
+                Something
+              </NavLink>
+
+            </div>
           </div>
 
           <div className="content__display">
