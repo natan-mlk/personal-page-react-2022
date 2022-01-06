@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Spartan:wght@300&display=swap');
 
 body, html {
   font-size: 10px;
@@ -11,8 +12,10 @@ body, html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  font-family: 'Raleway', sans-serif;
+  // font-family: 'Raleway', sans-serif;
 
+  // font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Spartan', sans-serif;
   // JAK MI SIĘ SPODOBA CZCIONKA, TO ŚCIĄGNIJ DO ASSETÓW JĄ
 }
 
@@ -34,6 +37,4 @@ code {
 @font-face {
   font-family: 'Pushster-Regular';
   src: local('Pushster-Regular'), url(./assets/fonts/Pushster-Regular.ttf) format('truetype');
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                            'embedded-opentype', and 'svg' */
 }
