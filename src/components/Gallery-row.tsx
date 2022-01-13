@@ -1,7 +1,6 @@
 import './../App.scss';
 import './Gallery-row.scss';
 import {PaintingData} from './../assets/plik-konfiguracji';
-import {useState} from 'react';
 
 interface GalleryRowProps {
     paintingData: PaintingData,
