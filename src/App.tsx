@@ -8,7 +8,7 @@ import About from './components/About';
 
 //  https://reactrouter.com/docs/en/v6/upgrading/v5
 
-function App() {
+const App = () => {
   return (
     <div className="app">
       <div className="app-body">
