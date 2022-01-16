@@ -21,7 +21,6 @@ const GalleryRow = (props: GalleryRowProps) => {
                 <div className="gallery__box gallery__box--labels">
                     <div className="gallery__box--labels__number">
                         #{paintingData.number}
-                        {/* {number} */}
                     </div>
                     <div className="gallery__box--labels__caption">
                         <div className="gallery__box--labels__caption__kind">{paintingData.kind}</div>
@@ -35,8 +34,10 @@ const GalleryRow = (props: GalleryRowProps) => {
                     <img alt="painting" src={paintingData.paintingUrl}></img>
                 </div>
 
-                <div className="gallery__box gallery__box--details" onClick={() => clickHandler(paintingData.paintingUrl)}>
-                    <img alt="detail" src={paintingData.detailUrl}></img>
+                <div className="gallery__box gallery__box--details" 
+                    onClick={() => clickHandler(paintingData.paintingUrl)}
+                    style={{backgroundImage: "url(" + paintingData.detailUrl + ")"}}>
+                    {/* <img alt="detail" src={paintingData.detailUrl}></img> */}
                 </div>
             </div>
         </div>

@@ -7,7 +7,9 @@ export interface PaintingData {
     additional?: string,
     size: string,
     paintingUrl: string,
-    detailUrl: string
+    detailUrl: string,
+    mini?: any,
+    big?: any
 }
 
 export const configurationFile: PaintingData[] = [
@@ -18,29 +20,41 @@ export const configurationFile: PaintingData[] = [
         date: '07.2021',
         kind: 'abstract',
         size: '40x50',
-        paintingUrl: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26_2021_07_web_mini.jpg?alt=media&token=1a19ca1f-1622-4499-9e4a-e53f34db8a16',
+//  
+        mini: [
+            {name: '26-stormyCloud-main', url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-main_2021_07_mini.jpg?alt=media&token=1dca50bc-1b30-43ff-bc2f-0287bec17e0f'},
+            {name: '26-stormyCloud-detal', url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-detal_2021_07_mini.jpg?alt=media&token=0ae1e753-4844-4c61-afe9-4d82390fcaa4'},
+            // {name: '26-stormyCloud-detal', url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-detal_2021_07_mini.jpg?alt=media&token=0ae1e753-4844-4c61-afe9-4d82390fcaa4'},
+        ],
+        big: [
+            'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-main_2021_07.jpg?alt=media&token=506f83b6-f41d-43c3-abf1-59f12882d195',
+            'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-detal_2021_07.jpg?alt=media&token=8d0e01b9-ff93-4a3e-9e4b-9689ccfece94',
+            // 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-detal_2021_07.jpg?alt=media&token=8d0e01b9-ff93-4a3e-9e4b-9689ccfece94',
+        ],
+        // 
+        paintingUrl: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26_2021_07_web_mini2.jpg?alt=media&token=1a19ca1f-1622-4499-9e4a-e53f34db8a16',
         detailUrl: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26_2021_07_detail_web_mini.jpg?alt=media&token=5411b409-77f3-46c9-8bc4-b14883d68aaa'
       
     },
-    {
-        rowType: 1,
-        number: '25',
-        technique: 'acrylic',
-        date: '07.2021',
-        kind: 'seaside',  
-        size: '70x50',
-        paintingUrl: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/25_2021_07_web.jpg?alt=media&token=03c5080b-26c0-442f-87c4-4375a07e24d5',
-        detailUrl: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/25_2021_07_web_detail_1.jpg?alt=media&token=d0bb55d4-8173-4734-aec6-65a82e730042'
-    },
-    {
-        rowType: 2,
-        number: '22',
-        technique: 'acrylic',
-        date: '07.2021',
-        size: '50x70',  
-        kind: 'seaside',
-        paintingUrl: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/25_2021_07_web.jpg?alt=media&token=03c5080b-26c0-442f-87c4-4375a07e24d5',
-        detailUrl: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/25_2021_07_web_detail_1.jpg?alt=media&token=d0bb55d4-8173-4734-aec6-65a82e730042'
+    // {
+    //     rowType: 1,
+    //     number: '25',
+    //     technique: 'acrylic',
+    //     date: '07.2021',
+    //     kind: 'seaside',  
+    //     size: '70x50',
+    //     paintingUrl: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/25_2021_07_web2.jpg?alt=media&token=03c5080b-26c0-442f-87c4-4375a07e24d5',
+    //     detailUrl: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/25_2021_07_web_detail_1.jpg?alt=media&token=d0bb55d4-8173-4734-aec6-65a82e730042'
+    // },
+    // {
+    //     rowType: 2,
+    //     number: '22',
+    //     technique: 'acrylic',
+    //     date: '07.2021',
+    //     size: '50x70',  
+    //     kind: 'seaside',
+    //     paintingUrl: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/25_2021_07_web.jpg?alt=media&token=03c5080b-26c0-442f-87c4-4375a07e24d5',
+    //     detailUrl: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/25_2021_07_web_detail_1.jpg?alt=media&token=d0bb55d4-8173-4734-aec6-65a82e730042'
       
-    },
+    // },
 ]
