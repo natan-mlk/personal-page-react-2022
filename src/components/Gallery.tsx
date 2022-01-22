@@ -6,23 +6,32 @@ import {configurationFile, PaintingDataInterface, overlayGallery, OverlayDataInt
 import {useState} from 'react';
 
 const Gallery = ()=> {
-
-    const [isOverlayOpen, toggleOverlay] = useState(false);
-    const [paintingFromGallery, setPaintingFromGallery] = useState<OverlayDataInterface | undefined>();
-    const [paintingIndex, setPaintingIndex] = useState<number>(0);
+    
+    const [galleryState, setGalleryState] = useState<{
+        isOverlayOpen: boolean,
+        paintingIndex: number,
+        paintingFromGallery: OverlayDataInterface | undefined
+    }>(
+        {
+            isOverlayOpen: false,
+            paintingFromGallery: overlayGallery[0],
+            paintingIndex: 0
+        }
+    );
 
     const getPaintingNumber = (paintingName: string) => {
         findPaintingUrl(paintingName);
-        console.log('isOverlayOpen 1', isOverlayOpen);
-        
-        toggleOverlay(true);
-        console.log('isOverlayOpen 2', isOverlayOpen);
-
     }
 
     const closeOverlay = () => {
-        toggleOverlay(false);
-        setPaintingFromGallery(undefined);
+        setGalleryState(
+            (prevState) => {
+                return {
+                    ...prevState,
+                    isOverlayOpen: false,
+                }
+            }
+        )
 
     }
 
@@ -30,42 +39,54 @@ const Gallery = ()=> {
         const displayPainting: OverlayDataInterface | undefined = overlayGallery.find(
             (elem: OverlayDataInterface) => elem.name === name
         );
-        setPaintingFromGallery(displayPainting);
+
         const paintingIndex: number =  overlayGallery.findIndex(
             (elem: OverlayDataInterface) => elem.name === name
         )
-        setPaintingIndex(paintingIndex);
+
+        setGalleryState(
+            (prevState) => {
+                return {
+                    ...prevState, 
+                    paintingIndex: paintingIndex,
+                    isOverlayOpen: true,
+                    paintingFromGallery: displayPainting
+                }
+            }
+        )
     }
 
     const nextPainting = () => {
-        if(paintingIndex >= 0) {
-            const nextPainting: OverlayDataInterface = overlayGallery[paintingIndex + 1];
-            console.log('!!! paintingFromGallery 1', paintingFromGallery); // main
-            setPaintingFromGallery(nextPainting);
-            console.log('!!! paintingFromGallery 2', paintingFromGallery); // main
+        if((galleryState.paintingIndex + 1) !== overlayGallery.length) {
+            const nextPainting: OverlayDataInterface = overlayGallery[galleryState.paintingIndex + 1];
 
-            console.log('!!! paintingIndex 1', paintingIndex);
-            setPaintingIndex(overlayGallery.indexOf(nextPainting));
-            console.log('!!! paintingIndex 2', paintingIndex);
-
-            // console.log('!!! overlayGallery', overlayGallery);
-            // console.log('!!! nextPainting', nextPainting); // detal
-            // console.log('!!! paintingFromGallery', paintingFromGallery); // main
-            
+            setGalleryState(
+                (prevState) => {
+                    return {
+                        ...prevState, 
+                        paintingIndex: overlayGallery.indexOf(nextPainting),
+                        isOverlayOpen: true,
+                        paintingFromGallery: nextPainting
+                    }
+                }
+            )
         }
     }
 
     const previousPainting = () => {
-        console.log('paintingIndex - 1', paintingIndex - 1);
-        console.log('overlayGallery.length', overlayGallery.length);
-        
-        if((paintingIndex - 1) < overlayGallery.length) {
-        const previousPainting: OverlayDataInterface = overlayGallery[paintingIndex - 1];
-        setPaintingFromGallery(previousPainting);
-        setPaintingIndex(overlayGallery.indexOf(previousPainting));
-        console.log('!!! overlayGallery', overlayGallery);
-
-        console.log('!!! paintingIndex', paintingIndex);
+        if((galleryState.paintingIndex) > 0) {
+            const previousPainting: OverlayDataInterface = overlayGallery[galleryState.paintingIndex - 1];
+            
+            setGalleryState(
+                (prevState) => {
+                    return {
+                        ...prevState, 
+                        paintingIndex: overlayGallery.indexOf(previousPainting),
+                        isOverlayOpen: true,
+                        paintingFromGallery: previousPainting
+                    }
+                }
+            )
 
         }
     }
@@ -79,15 +100,13 @@ const Gallery = ()=> {
               return <GalleryRow paintingData={paintingData} onPaintingClicked={getPaintingNumber}></GalleryRow>  
             })}
 
-            {isOverlayOpen ? 
+            {galleryState.isOverlayOpen ? 
             <div className='overlayGallery'>
                 <h1 onClick={() => closeOverlay()}>CLOSE</h1>
                 <h1 onClick={() => nextPainting()}>Next</h1>
                 <h1 onClick={() => previousPainting()}>Prev</h1>
-                <h1>{paintingFromGallery!.name}</h1>
-                
-                {/* <img alt='' src={paintingUrl}></img> */}
-                <img alt='' src={paintingFromGallery!.url}></img>
+                <h1>{galleryState.paintingFromGallery!.name}</h1>                
+                <img alt='' src={galleryState.paintingFromGallery!.url}></img>
             </div> : null }
 
         </div>
