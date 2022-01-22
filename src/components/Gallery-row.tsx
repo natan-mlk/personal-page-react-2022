@@ -1,19 +1,21 @@
 import './../App.scss';
 import './Gallery-row.scss';
-import {PaintingData} from './../assets/plik-konfiguracji';
+import {PaintingDataInterface} from './../assets/plik-konfiguracji';
 
 interface GalleryRowProps {
-    paintingData: PaintingData,
-    onPaintingClicked(paintingNumber: string): any
+    paintingData: PaintingDataInterface,
+    onPaintingClicked(name: string): any
 }
 
 const GalleryRow = (props: GalleryRowProps) => {
         
-    const paintingData : PaintingData = props.paintingData;
+    const paintingData : PaintingDataInterface = props.paintingData;
 
-    const clickHandler = (url: string) => {
-        props.onPaintingClicked(url);
+    const clickHandler = (name: string) => {
+        props.onPaintingClicked(name);
     }
+
+    const items: any[] = [];
 
     return (
         <div>
@@ -30,14 +32,14 @@ const GalleryRow = (props: GalleryRowProps) => {
                     </div>
                 </div>
 
-                <div className="gallery__box gallery__box--image" onClick={() => clickHandler(paintingData.paintingUrl)}>
-                    <img alt="painting" src={paintingData.paintingUrl}></img>
+                <div className="gallery__box gallery__box--image" onClick={() => clickHandler(paintingData.mini[0].name)}>
+                    <img alt="painting" src={paintingData.mini[0].url}></img>
                 </div>
 
+
                 <div className="gallery__box gallery__box--details" 
-                    onClick={() => clickHandler(paintingData.paintingUrl)}
-                    style={{backgroundImage: "url(" + paintingData.detailUrl + ")"}}>
-                    {/* <img alt="detail" src={paintingData.detailUrl}></img> */}
+                    onClick={() => clickHandler(paintingData.mini[1].name)}
+                    style={{backgroundImage: "url(" + paintingData.mini[1].url + ")"}}>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-export interface PaintingData {
+export interface PaintingDataInterface {
     rowType: number,
     number: string,
     technique: string,
@@ -9,10 +9,33 @@ export interface PaintingData {
     paintingUrl: string,
     detailUrl: string,
     mini?: any,
-    big?: any
+}
+export interface OverlayDataInterface {
+    year: number,
+    name: string,
+    technique: string,
+    size: string,
+    url:string
 }
 
-export const configurationFile: PaintingData[] = [
+export const overlayGallery = [
+    {
+        year: 2021,
+        name: '26-stormyCloud-main',
+        technique: 'acrylic+oil',
+        size: '40x50',
+        url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-main_2021_07.jpg?alt=media&token=506f83b6-f41d-43c3-abf1-59f12882d195',
+    },
+    {
+        year: 2021,
+        name: '26-stormyCloud-detal',
+        technique: 'acrylic+oil',
+        size: '40x50',
+        url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-detal_2021_07.jpg?alt=media&token=8d0e01b9-ff93-4a3e-9e4b-9689ccfece94',
+    },
+];
+
+export const configurationFile: PaintingDataInterface[] = [
     {
         rowType: 2,
         number: '26',
@@ -20,16 +43,11 @@ export const configurationFile: PaintingData[] = [
         date: '07.2021',
         kind: 'abstract',
         size: '40x50',
-//  
+
         mini: [
             {name: '26-stormyCloud-main', url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-main_2021_07_mini.jpg?alt=media&token=1dca50bc-1b30-43ff-bc2f-0287bec17e0f'},
             {name: '26-stormyCloud-detal', url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-detal_2021_07_mini.jpg?alt=media&token=0ae1e753-4844-4c61-afe9-4d82390fcaa4'},
             // {name: '26-stormyCloud-detal', url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-detal_2021_07_mini.jpg?alt=media&token=0ae1e753-4844-4c61-afe9-4d82390fcaa4'},
-        ],
-        big: [
-            'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-main_2021_07.jpg?alt=media&token=506f83b6-f41d-43c3-abf1-59f12882d195',
-            'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-detal_2021_07.jpg?alt=media&token=8d0e01b9-ff93-4a3e-9e4b-9689ccfece94',
-            // 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-detal_2021_07.jpg?alt=media&token=8d0e01b9-ff93-4a3e-9e4b-9689ccfece94',
         ],
         // 
         paintingUrl: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26_2021_07_web_mini2.jpg?alt=media&token=1a19ca1f-1622-4499-9e4a-e53f34db8a16',
