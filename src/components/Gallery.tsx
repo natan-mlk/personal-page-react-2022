@@ -5,6 +5,10 @@ import './Gallery.scss';
 import {configurationFile, PaintingDataInterface, overlayGallery, OverlayDataInterface} from './../assets/plik-konfiguracji';
 import {useState} from 'react';
 
+import closeIcon from './../assets/icons/close_white_24dp.svg';
+import forwardIcon from './../assets/icons/arrow_forward_ios_white_24dp.svg';
+import backIcon from './../assets/icons/arrow_back_ios_white_24dp.svg';
+
 const Gallery = ()=> {
     
     const [galleryState, setGalleryState] = useState<{
@@ -23,7 +27,10 @@ const Gallery = ()=> {
         findPaintingUrl(paintingName);
     }
 
-    const closeOverlay = () => {
+    const closeOverlay = (event: any) => {
+        console.log(event);
+        
+        event.stopPropagation();
         setGalleryState(
             (prevState) => {
                 return {
@@ -102,11 +109,20 @@ const Gallery = ()=> {
 
             {galleryState.isOverlayOpen ? 
             <div className='overlayGallery'>
-                <h1 onClick={() => closeOverlay()}>CLOSE</h1>
-                <h1 onClick={() => nextPainting()}>Next</h1>
-                <h1 onClick={() => previousPainting()}>Prev</h1>
-                <h1>{galleryState.paintingFromGallery!.name}</h1>                
-                <img alt='' src={galleryState.paintingFromGallery!.url}></img>
+                {/* możliwe że propagation zadziała jak wydzielę overlayGallery do osobnego komponentu */}
+                <div className='closeGallery' onClick={(event) => closeOverlay(event)}>
+                    <span>X</span>
+                </div>
+
+                <div className='image-box'>
+                    <div className='navigation-icon navigation-icon--back' onClick={() => previousPainting()}>
+                        <img alt='back' src={backIcon}></img>
+                    </div>
+                    <img alt='' src={galleryState.paintingFromGallery!.url}></img>
+                    <div className='navigation-icon navigation-icon--forward' onClick={() => nextPainting()}>
+                        <img alt='forward' src={forwardIcon}></img>
+                    </div>
+                </div>
             </div> : null }
 
         </div>
