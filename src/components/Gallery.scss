@@ -1,10 +1,12 @@
+@import './../assets/variables';
+
 .overlayGallery {
     position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
-    background-color: rgba(72, 101, 114, 0.8);
+    background-color: $galleryOverlayBackground;
 }
 
 .closeGallery {
@@ -17,7 +19,7 @@
     font-size: 50px;
 }
 
-.image-box {
+.display-box {
     height: 100%;
     display: flex;
     justify-content: center;
@@ -25,6 +27,32 @@
 
     img {
         max-height: 100%;
+    }
+}
+
+.image-box {
+    background-color: $galleryBoxBackground;
+    height: 90%;
+}
+
+.image-box-wrapper { 
+    height: 100%;
+    display: flex;
+    padding: 20px 0;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.caption-box {
+    background-color: $galleryBoxBackground;
+    color: $fontColor;
+    font-size: 2rem;
+    text-align: center;
+    padding: 20px 0;
+
+    &_number {
+        font-size: 3rem;
+        color: $accentColorDark;
     }
 }
 

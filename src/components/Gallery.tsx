@@ -14,17 +14,17 @@ const Gallery = ()=> {
     const [galleryState, setGalleryState] = useState<{
         isOverlayOpen: boolean,
         paintingIndex: number,
-        paintingFromGallery: OverlayDataInterface | undefined
+        paintingFromGallery: OverlayDataInterface | undefined,
     }>(
         {
             isOverlayOpen: false,
             paintingFromGallery: overlayGallery[0],
-            paintingIndex: 0
+            paintingIndex: 0,
         }
     );
 
-    const getPaintingNumber = (paintingName: string) => {
-        findPaintingUrl(paintingName);
+    const openGalleryWithPainting = (paintingName: string) => {
+        findPainting(paintingName);
     }
 
     const closeOverlay = (event: any) => {
@@ -42,7 +42,7 @@ const Gallery = ()=> {
 
     }
 
-    const findPaintingUrl = (name: string) => {
+    const findPainting = (name: string) => {
         const displayPainting: OverlayDataInterface | undefined = overlayGallery.find(
             (elem: OverlayDataInterface) => elem.name === name
         );
@@ -57,15 +57,30 @@ const Gallery = ()=> {
                     ...prevState, 
                     paintingIndex: paintingIndex,
                     isOverlayOpen: true,
-                    paintingFromGallery: displayPainting
+                    paintingFromGallery: displayPainting,
                 }
             }
         )
     }
 
     const nextPainting = () => {
-        if((galleryState.paintingIndex + 1) !== overlayGallery.length) {
-            const nextPainting: OverlayDataInterface = overlayGallery[galleryState.paintingIndex + 1];
+        let nextPainting: OverlayDataInterface;
+
+        if(galleryState.paintingIndex === (overlayGallery.length -1)){
+            nextPainting = overlayGallery[0];
+
+            setGalleryState(
+                (prevState) => {
+                    return {
+                        ...prevState, 
+                        paintingIndex: 0,
+                        isOverlayOpen: true,
+                        paintingFromGallery: nextPainting,
+                    }
+                }
+            )
+        } else {
+            nextPainting = overlayGallery[galleryState.paintingIndex! + 1];
 
             setGalleryState(
                 (prevState) => {
@@ -73,28 +88,41 @@ const Gallery = ()=> {
                         ...prevState, 
                         paintingIndex: overlayGallery.indexOf(nextPainting),
                         isOverlayOpen: true,
-                        paintingFromGallery: nextPainting
+                        paintingFromGallery: nextPainting,
+
                     }
                 }
             )
+
         }
     }
 
     const previousPainting = () => {
-        if((galleryState.paintingIndex) > 0) {
-            const previousPainting: OverlayDataInterface = overlayGallery[galleryState.paintingIndex - 1];
-            
+        let previousPainting: OverlayDataInterface;
+        if(galleryState.paintingIndex === 0){
+            previousPainting = overlayGallery[overlayGallery.length - 1];
             setGalleryState(
                 (prevState) => {
                     return {
                         ...prevState, 
                         paintingIndex: overlayGallery.indexOf(previousPainting),
                         isOverlayOpen: true,
-                        paintingFromGallery: previousPainting
+                        paintingFromGallery: previousPainting,
                     }
                 }
             )
-
+        } else {
+            previousPainting = overlayGallery[galleryState.paintingIndex! - 1];
+            setGalleryState(
+                (prevState) => {
+                    return {
+                        ...prevState, 
+                        paintingIndex: overlayGallery.indexOf(previousPainting),
+                        isOverlayOpen: true,
+                        paintingFromGallery: previousPainting,
+                    }
+                }
+            )
         }
     }
 
@@ -104,7 +132,7 @@ const Gallery = ()=> {
             {/* TUTAJ DAĆ POTEM FILTROWANIE ALBO SORTOWANIE */}
             
             {configurationFile.map((paintingData: PaintingDataInterface) => {
-              return <GalleryRow paintingData={paintingData} onPaintingClicked={getPaintingNumber}></GalleryRow>  
+              return <GalleryRow paintingData={paintingData} onPaintingClicked={openGalleryWithPainting}></GalleryRow>  
             })}
 
             {galleryState.isOverlayOpen ? 
@@ -114,17 +142,25 @@ const Gallery = ()=> {
                     <span>X</span>
                 </div>
 
-                <div className='image-box'>
-                    <div className='navigation-icon navigation-icon--back' onClick={() => previousPainting()}>
+                <div className='display-box'>
+                    <div className={'navigation-icon navigation-icon--back'}
+                        onClick={() => previousPainting()}>
                         <img alt='back' src={backIcon}></img>
                     </div>
-                    <img alt='' src={galleryState.paintingFromGallery!.url}></img>
-                    <div className='navigation-icon navigation-icon--forward' onClick={() => nextPainting()}>
+
+                    <div className="image-box-wrapper">
+                        <div className="image-box"><img alt='' src={galleryState.paintingFromGallery?.url}></img></div>
+                        <div className='caption-box'>
+                            <span className='caption-box_number'>#{galleryState.paintingFromGallery?.number}</span>, {galleryState.paintingFromGallery?.year}, {galleryState.paintingFromGallery?.technique}
+                        </div>
+                    </div>
+
+                    <div className={'navigation-icon navigation-icon--forward'}
+                         onClick={() => nextPainting()}>
                         <img alt='forward' src={forwardIcon}></img>
                     </div>
                 </div>
             </div> : null }
-
         </div>
     )
 }

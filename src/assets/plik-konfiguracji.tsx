@@ -11,30 +11,37 @@ export interface PaintingDataInterface {
     mini: any,
 }
 export interface OverlayDataInterface {
+    number: number,
     year: number,
     name: string,
     technique: string,
     size: string,
-    url:string
+    url:string,
+    additional?: string
 }
 
 export const overlayGallery = [
     {
+        number: 26,
         year: 2021,
         name: '26-stormyCloud-main',
         technique: 'acrylic+oil',
         size: '40x50',
+        additional: 'Commissioned',
         url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-main_2021_07.jpg?alt=media&token=506f83b6-f41d-43c3-abf1-59f12882d195',
     },
     {
+        number: 26,
         year: 2021,
         name: '26-stormyCloud-detal',
         technique: 'acrylic+oil',
         size: '40x50',
+        additional: 'Commissioned',
         url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-detal_2021_07.jpg?alt=media&token=8d0e01b9-ff93-4a3e-9e4b-9689ccfece94',
     },
     
     {
+        number: 25,
         year: 2021,
         name: '25-seaside-main',
         technique: 'acrylic+structure',
@@ -43,6 +50,7 @@ export const overlayGallery = [
     },
     
     {
+        number: 25,
         year: 2021,
         name: '25-seaside-detal',
         technique: 'acrylic+structure',
@@ -61,7 +69,7 @@ export const configurationFile: PaintingDataInterface[] = [
         size: '40x50',
 
         mini: [
-            {name: '26-stormyCloud-main', url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-main_2021_07_mini.jpg?alt=media&token=1dca50bc-1b30-43ff-bc2f-0287bec17e0f'},
+            {name: '26-stormyCloud-main', url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-main_2021_07_mini.jpg?alt=media&token=c3b02e73-a630-42f1-97b2-28b53865efc0'},
             {name: '26-stormyCloud-detal', url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-detal_2021_07_mini.jpg?alt=media&token=0ae1e753-4844-4c61-afe9-4d82390fcaa4'},
             // {name: '26-stormyCloud-detal', url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/026%2F26-stormyCloud-detal_2021_07_mini.jpg?alt=media&token=0ae1e753-4844-4c61-afe9-4d82390fcaa4'},
         ],
@@ -76,7 +84,7 @@ export const configurationFile: PaintingDataInterface[] = [
         technique: 'acrylic+structure',
         date: '07.2021',
         kind: 'abstract',
-        size: '???',
+        size: '70x50',
         mini: [
             {name: '25-seaside-main', url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/025%2F25-seaside-main_2021_07_mini.jpg?alt=media&token=d128106d-898c-43be-89cb-de3e7338fac0'},
             {name: '25-seaside-detal', url: 'https://firebasestorage.googleapis.com/v0/b/amilko-homepage.appspot.com/o/025%2F25-seaside-detail_2021_07_mini.jpg?alt=media&token=6a95fe38-d27d-4dd4-a714-900a2697115b'},
