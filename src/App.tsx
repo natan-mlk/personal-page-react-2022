@@ -13,27 +13,29 @@ const App = () => {
     <div className="app">
       <div className="app-body">
         <div className="content">
+
           <div className="content__navigation">
             <div className="navigation__wrapper">
               <div className="navigation__name">
                 Adam Milko
               </div>
 
-              <NavLink to="/"
-                className={(navData)=> navData.isActive ? 'navigation__link navigation__link--active' : 'navigation__link'}>
-                Gallery
-              </NavLink>
+              <div className='navigation__NavLink__wrapper'>
+                <NavLink to="/"
+                  className={(navData)=> navData.isActive ? 'navigation__link navigation__link--active' : 'navigation__link'}>
+                  Gallery
+                </NavLink>
 
-              <NavLink to="/about"
-                className={(navData)=> navData.isActive ? 'navigation__link navigation__link--active' : 'navigation__link'}>
-                About me
-              </NavLink>
+                <NavLink to="/about"
+                  className={(navData)=> navData.isActive ? 'navigation__link navigation__link--active' : 'navigation__link'}>
+                  About me
+                </NavLink>
 
-              <NavLink to="/about"
-                className={(navData)=> navData.isActive ? 'navigation__link navigation__link--active' : 'navigation__link'}>
-                Something
-              </NavLink>
-
+                <NavLink to="/about"
+                  className={(navData)=> navData.isActive ? 'navigation__link navigation__link--active' : 'navigation__link'}>
+                  Something
+                </NavLink>
+              </div>
             </div>
           </div>
 
