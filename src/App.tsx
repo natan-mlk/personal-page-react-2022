@@ -31,10 +31,6 @@ const App = () => {
                   About me
                 </NavLink>
 
-                <NavLink to="/about"
-                  className={(navData)=> navData.isActive ? 'navigation__link navigation__link--active' : 'navigation__link'}>
-                  Something
-                </NavLink>
               </div>
             </div>
           </div>

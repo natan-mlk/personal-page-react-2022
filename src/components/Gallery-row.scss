@@ -27,33 +27,39 @@
 
             &__caption {
                 padding-right: 20px;
+                padding-left: 33px;
 
                 &__technique {
                     font-size: 2.8rem;
                     line-height: 2.5rem;
+                    text-align: left;
+
                 }
                 &__date {
                     font-size: 2.3rem;
-                    text-align: right;
                     line-height: 3rem;
+                    text-align: left;
                 }
                 &__kind {
                     font-size: 2.5rem;
+                    text-align: left;
+
                 }
                 &__size {
                     font-size: 3rem;
-                    text-align: right;
                     line-height: 6rem;
+                    text-align: left;
                 }
 
             }
 
             &__number {
                 color: $accentColorLight;
-                font-size: 9rem;
+                font-size: 8rem;
                 text-align: right;
                 line-height: 64px;
                 width: 200px;
+                padding-top: 20px;
             }
 
         }
@@ -66,19 +72,22 @@
 
         &--image {
             order: 2;
-            
-            // img {
-            //     width: 100%
-            // }
+            width: 100%;
+
+            img {
+                width: 100%
+            }
         }
 
         &--details {
             order: 3;
             flex-grow: 1;
-
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* Do not repeat the image */
             background-size: cover;
+            margin: 0 10px;
+            height: 300px;
+
             // background-color: blue;
             // img {
             //     max-height: 100%;
@@ -108,13 +117,48 @@
         &__box {
             &--labels {
                 order: 1;
+
+                &__number {
+                    font-size: 9rem;
+                }
+
+                &__caption {
+                    padding-left: 0;
+
+                    &__technique {
+                        font-size: 2.8rem;
+                        line-height: 2.5rem;
+                        text-align: left;
+                    }
+                    &__date {
+                        font-size: 2.3rem;
+                        line-height: 3rem;
+                        text-align: right;
+                    }
+                    &__kind {
+                        font-size: 2.5rem;
+                        text-align: left;
+                    }
+                    &__size {
+                        font-size: 3rem;
+                        line-height: 6rem;
+                        text-align: right;
+                    }
+                }
             }
             &--image {
                 order: 2;
+                width: auto;
+            
+                img {
+                    width: auto;
+                }
             }
     
             &--details {
                 order: 3;
+                height: auto;
+                margin: 0;
             }
         }
         

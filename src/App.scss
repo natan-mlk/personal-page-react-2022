@@ -27,9 +27,9 @@
     }
 
     &__display {
-        width: 100%;
-        height: calc(100% - 70px);
-        padding: 10px 15px 50px 0;
+        width: 100vw;
+        height: calc(100vh - 70px);
+        padding: 0;
         overflow: auto;
     }
 }
@@ -49,10 +49,11 @@
     }
 
     &__name {
+        padding-top: 15px;
         color: $fontColor;
-        font-size: 3rem;
+        font-size: 2rem;
         text-align: center;
-        padding: 10px 0;
+        padding: 15px 0;
     }
 
     &__link {
@@ -68,6 +69,17 @@
         }
     }
 }
+
+    @media only screen and (min-width: 600px) {
+        .navigation {
+
+            &__name {
+                padding: 10px 0;
+                font-size: 3rem;
+
+            }
+        }
+    }
 
     @media only screen and (min-width: 1000px) {
         .content {
