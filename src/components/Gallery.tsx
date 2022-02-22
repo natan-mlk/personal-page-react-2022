@@ -138,10 +138,6 @@ const Gallery = ()=> {
             {galleryState.isOverlayOpen ? 
             <div className='overlayGallery'>
                 {/* możliwe że propagation zadziała jak wydzielę overlayGallery do osobnego komponentu */}
-                <div className='closeGallery' onClick={(event) => closeOverlay(event)}>
-                    <span>X</span>
-                </div>
-
                 <div className='display-box'>
                     <div className={'navigation-icon navigation-icon--back'}
                         onClick={() => previousPainting()}>
@@ -159,6 +155,10 @@ const Gallery = ()=> {
                          onClick={() => nextPainting()}>
                         <img alt='forward' src={forwardIcon}></img>
                     </div>
+                </div>
+
+                <div className='closeGallery' onClick={(event) => closeOverlay(event)}>
+                    <span>X</span>
                 </div>
             </div> : null }
         </div>
